@@ -23,7 +23,6 @@ Route::get('/teste/{algo?}', function($algo = null){
 
 Route::get('/teste-view/{param?}', function($param = null){
     return view('teste-view', [
-        'title' => 'Página joia',
-        'valor_da_controller' => $param,
+    'valor_da_controller' => $param,
     ]);
 });
