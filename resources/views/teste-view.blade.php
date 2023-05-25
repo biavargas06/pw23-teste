@@ -7,3 +7,4 @@
 <p>Estou emocionado 😢</p>
 <p>Minha variável que veio de longe: {{$valor_da_controller}}</p>
 @endsection
+
