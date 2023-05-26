@@ -10,9 +10,12 @@ class ProdutosController extends Controller
         return view('produtos.index');
 }
  public function add(){
+     return view('produtos.add');
 
+ }
+ public function addSave(Request $form){
+     dd($form);
  }
  public function view(){
 
- }
-}
+ }}
