@@ -9,22 +9,28 @@
         <th>Nome</th>
         <th>Preço</th>
         <th>Quantidade</th>
+        <th>Editar</th>
     </tr>
     @foreach ($prods as $prod)
         <tr>
-        <td>{{$prod->name}}</td>
+        <td> <a class="first-link" href="{{ route ('produtos.view', $prod->id) }}">{{$prod->name}}</a></td>
         <td>R${{ number_format($prod->price, 2, ',', '.')}}</td>
         <td>{{$prod->quantity}}</td>
+        <td><a href="{{route('produtos.edit', $prod->id)}}">edit</a></td>
     </tr>
     @endforeach
 
 </table>
+<div class="button-container">
 <a href="{{ route('produtos.add') }}">Adicionar produto</a>
+</div>
 
 <style>
     table {
         border-collapse: collapse;
-        width: 100%;
+        margin: 0 auto;
+        width: 80%;
+        max-width: 800px;
         text-align: center;
     }
 
@@ -43,19 +49,36 @@
         background-color: #f2f2f2;
     }
 
-    a {
-        display: inline-block;
+    .button-container {
+        display: flex;
+        justify-content: center;
         margin-top: 10px;
+    }
+
+    .button-container a {
+        display: inline-block;
         padding: 10px;
         background-color: #FC6C85;
         color: white;
         text-decoration: none;
         border-radius: 4px;
+        width: 100%;
+        max-width: 785px;
+        text-align: center;
     }
 
-    a:hover {
+    .button-container a:hover {
         background-color: #E75480;
+        cursor: pointer;
     }
+
+    .first-link {
+        color:#E75480;
+    }
+
+    .first-link:hover {
+        color:  #9F2042;
+
 </style>
 @endsection
 
