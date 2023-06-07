@@ -3,7 +3,12 @@
 @section('title', 'Produtos')
 
 @section('content')
+ @if (session('sucesso'))
+ <div style="background-color: #FC6C85; color:#9F2042">
+{{session('sucesso')}}
+</div>
 
+ @endif
 <table border="1" style="border-color:#FC6C85">
     <tr style="color: #E75480">
         <th>Nome</th>

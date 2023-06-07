@@ -9,6 +9,13 @@
 <body>
 
 <h1>Site lindão</h1>
+
+<div>
+    <ul>
+        <li><a href="{{ route('home') }}">Home</a></li>
+        <li><a href="{{ route('produtos') }}">Produtos</a></li>
+    </ul>
+</div>
 <hr>
 @yield('content')
 
