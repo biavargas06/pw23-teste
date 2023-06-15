@@ -30,7 +30,7 @@ Route::get('produtos/edit/{produto}', [ProdutosController::class, 'edit'])->name
 
 Route::post('produtos/edit/{produto}', [ProdutosController::class, 'editSave'])->name('produtos.editSave');
 
-Route::post('produtos/delete/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
+Route::get('produtos/delete/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
 
 Route::delete('produtos/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
 
