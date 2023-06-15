@@ -10,6 +10,8 @@ class ProdutosController extends Controller
 {
     public function index(){
         $prods = Produto::all();
+        #$prods = Produto::withTrashed()->get();
+        #$prods = Produto::onlyTrashed()->get();
         //dd($prods);
 
     return view('produtos.index',[
