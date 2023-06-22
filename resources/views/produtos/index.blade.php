@@ -9,6 +9,16 @@
 </div>
 
  @endif
+
+ <form action="{{ route('produtos') }}" method="post"> @csrf
+      <input type="text" name="busca">
+      <select name="ord" name="ord">
+          <option value="asc">Cresente</option>
+          <option value="desc">Decresente</option>
+      </select>
+      <input type="submit" value="Busca">
+ </form>
+
 <table border="1" style="border-color:#FC6C85">
     <tr style="color: #E75480">
         <th>Nome</th>
