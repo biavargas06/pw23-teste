@@ -12,7 +12,7 @@
 
  <form action="{{ route('produtos') }}" method="post"> @csrf
       <input type="text" name="busca">
-      <select name="ord" name="ord">
+      <select name="ord">
           <option value="asc">Cresente</option>
           <option value="desc">Decresente</option>
       </select>

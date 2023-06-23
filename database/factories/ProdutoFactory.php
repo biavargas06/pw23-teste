@@ -17,7 +17,7 @@ class ProdutoFactory extends Factory
     public function definition(): array
     {
         $names =[
-            'Boné', 'Bermuda', 'Chapéu', 'Luva', 'Tênis', 'Camisa', 'Bolsa', 'Casaco',
+            'Boné', 'Bermuda', 'Chapéu', 'Luva', 'Tênis', 'Camisa', 'Bolsa', 'Casaco', 'Jaqueta', 'Chinelo', 'Bota'
         ];
         return [
             'name' => $this->faker->randomElement($names),
