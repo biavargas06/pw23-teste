@@ -12,9 +12,9 @@ class ProdutosController extends Controller
         if($request->isMethod('POST')){
             $busca = $request->busca;
             $ord = $request->ord == 'asc' ? 'asc' : 'desc';
-            $prods = Produto::where('name', 'LIKE', "%{$busca}%")->orderBy('name', $ord)->get();
+            $prods = Produto::where('name', 'LIKE', "%{$busca}%")->orderBy('price', $ord)->paginate();
         } else {
-            $prods = Produto::all();
+            $prods = Produto::paginate();
         }
 
         #$prods = Produto::withTrashed()->get();
