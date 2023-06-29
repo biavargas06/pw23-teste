@@ -16,6 +16,7 @@
     <ul>
         <li><a href="{{ route('home') }}">Home</a></li>
         <li><a href="{{ route('produtos') }}">Produtos</a></li>
+        <li><a href="{{ route('usuarios') }}">Usuários</a></li>
     </ul>
 </div>
 <hr>

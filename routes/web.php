@@ -36,3 +36,6 @@ Route::get('produtos/delete/{produto}', [ProdutosController::class, 'delete'])->
 
 Route::delete('produtos/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
 
+Route::get('/usuarios', [UsuariosController::class,'index'])->name('usuarios');
+
+Route::get('/usuarios/add', [UsuariosController::class, 'add'])->name('usuarios.add');
