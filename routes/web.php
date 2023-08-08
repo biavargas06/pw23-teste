@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProdutosController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/produtos', [ProdutosController::class,'index'])->name('produtos');
+Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos')->middleware('auth');
 
 Route::post('/produtos', [ProdutosController::class,'index']);
 
@@ -36,6 +37,25 @@ Route::get('produtos/delete/{produto}', [ProdutosController::class, 'delete'])->
 
 Route::delete('produtos/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
 
-Route::get('/usuarios', [UsuariosController::class,'index'])->name('usuarios');
-
 Route::get('/usuarios/add', [UsuariosController::class, 'add'])->name('usuarios.add');
+
+Route::prefix('/usuarios')->group(function () {
+    Route::get('', [UsuariosController::class, 'index'])->name('usuarios');
+
+    Route::get('view', [UsuariosController::class, 'view'])->name('usuarios.view');
+
+    Route::get('add', [UsuariosController::class, 'add'])->name('usuarios.add');
+
+    Route::post('add', [UsuariosController::class, 'add']);
+
+    Route::get('edit', [UsuariosController::class, 'edit'])->name('usuarios.edit');
+
+    Route::get('delete', [UsuariosController::class, 'delete'])->name('usuarios.delete');
+
+
+});
+
+Route::get('login', [UsuariosController::class, 'login'])->name('login');
+Route::post('login', [UsuariosController::class, 'login'])->name('login');
+
+Route::get('logout', [UsuariosController::class, 'logout'])->name('logout');

@@ -11,7 +11,15 @@
 <body>
 
 <h1>Site lindão</h1>
-
+<div>
+    @if (Auth::user())
+        oii {{ Auth::user()->name }}
+        <br>
+        <a href="{{ route('logout') }}">Vaza</a>
+        @else
+        <a href="{{ route('login') }}">Faz login no site bobão</a>
+    @endif
+</div>
 <div>
     <ul>
         <li><a href="{{ route('home') }}">Home</a></li>

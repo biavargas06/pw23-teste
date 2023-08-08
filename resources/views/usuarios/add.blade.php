@@ -1,27 +1,28 @@
 @extends('includes.base')
 
-@section('title', 'Usuarios - Adicionar')
+@section('title', 'Usuários - Adicionar')
 
 @section('content')
-    <h2>Adicione seu produto</h2>
+    <h2>Adicione seu usuário</h2>
 
-   <form action="{{ url()->current() }}" method="post">
+    @if ($errors)
+        @foreach ($errors->all() as $err)
+            {{ $err }}<br>
+        @endforeach
+    @endif
 
-    @csrf
-          <input type="text" name="name" placeholder="Nome" value="{{ old ('name', $prod->name ?? '')}}"><br>
-          <input type="text" name="email" placeholder="Email"><br>
-          <input type="text" name="password" placeholder="Senha">
-          <hr>
-          <input type="submit" value="Gravar">
-   </form>
+    <form action="{{ url()->current() }}" method="post">
 
-@if ($errors)
-<div class="error-message">
-@foreach ( $errors->all() as $err)
-{{ $err }} <br>
-@endforeach
-</div>
-@endif
+        @csrf
+        <input type="text" name="name" placeholder="Nome" value="{{ old('name', $usr->name ?? '') }}">
+        <br>
+        <input type="email" name="email" placeholder="E-mail" value="{{ old('email', $usr->email ?? '') }}">
+        <br>
+        <input type="password" name="password" placeholder="Senha" value="">
+        <br><br>
+        <input type="submit" value="Gravar">
+    </form>
+@endsection
 
    <style>
     h2 {
