@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\ProdutosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
@@ -40,7 +41,7 @@ Route::delete('produtos/delete/{produto}', [ProdutosController::class, 'deleteFo
 Route::get('/usuarios/add', [UsuariosController::class, 'add'])->name('usuarios.add');
 
 Route::prefix('/usuarios')->group(function () {
-    Route::get('', [UsuariosController::class, 'index'])->name('usuarios');
+    Route::get('', [UsuariosController::class, 'index'])->name('usuarios')->middleware('auth');
 
     Route::get('view', [UsuariosController::class, 'view'])->name('usuarios.view');
 
@@ -59,3 +60,13 @@ Route::get('login', [UsuariosController::class, 'login'])->name('login');
 Route::post('login', [UsuariosController::class, 'login'])->name('login');
 
 Route::get('logout', [UsuariosController::class, 'logout'])->name('logout');
+
+//Rotas automaticas da verificação de email
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request){
+    $request->fulfill();
+    return redirect()->route('home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
